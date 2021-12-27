@@ -2,22 +2,29 @@ import React, {ReactElement} from 'react';
 import {ViewStyle, StyleSheet, View, Dimensions} from 'react-native';
 import {StyledButton} from 'components/button';
 import {useTranslation} from 'react-i18next';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/core';
 import {NavigationRoutes} from 'navigation/routes';
+import {NoAuthSafeArea} from 'containers/no-auth-safe-area';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 export const FirstScreen = (): ReactElement => {
   const {t} = useTranslation();
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<any>>();
 
   return (
-    <View>
+    <NoAuthSafeArea>
       <StyledButton
         styleButton={[styles.button, styles.signInButton]}
-        // onPress={(): void => navigation.navigate(NavigationRoutes.SIGN_IN)}
+        onPress={(): void =>
+          navigation.navigate({
+            name: NavigationRoutes.SIGN_IN,
+            key: NavigationRoutes.SIGN_IN,
+          })
+        }
         icon>
-        {t('signInScreen.signIn')}
+        {t('sign-in.sign-in-text')}
       </StyledButton>
-    </View>
+    </NoAuthSafeArea>
   );
 };
 

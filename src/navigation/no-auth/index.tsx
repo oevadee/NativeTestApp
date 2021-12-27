@@ -19,6 +19,9 @@ export const NoAuthNavigation = (): ReactElement => {
       <NoAuthStack.Screen
         name={NavigationRoutes.FIRST_SCREEN}
         component={FirstScreen}
+        options={{
+          headerShown: false,
+        }}
       />
       <NoAuthStack.Screen
         name={NavigationRoutes.SIGN_IN}

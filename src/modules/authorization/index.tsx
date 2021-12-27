@@ -21,19 +21,31 @@ export const Authorization = (): ReactElement => {
   const [isLogin, setIsLogin] = useState(false);
 
   return (
-    <Stack.Navigator>
-      {isLogin ? (
-        <></>
-      ) : (
-        // <Stack.Screen
-        //   name={NavigationRoutes.AUTH}
-        //   component={AuthNavigation}
-        // />
-        <Stack.Screen
-          name={NavigationRoutes.NO_AUTH}
-          component={NoAuthNavigation}
-        />
-      )}
-    </Stack.Navigator>
+    <SafeAreaView style={styles.container}>
+      <Stack.Navigator>
+        {isLogin ? (
+          <></>
+        ) : (
+          // <Stack.Screen
+          //   name={NavigationRoutes.AUTH}
+          //   component={AuthNavigation}
+          // />
+          <Stack.Screen
+            name={NavigationRoutes.NO_AUTH}
+            component={NoAuthNavigation}
+            options={{
+              headerShown: false,
+            }}
+          />
+        )}
+      </Stack.Navigator>
+    </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create<any>({
+  container: {
+    flex: 1,
+    backgroundColor: '#383838',
+  },
+});

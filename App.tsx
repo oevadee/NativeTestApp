@@ -12,7 +12,10 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {Authorization} from './src/modules/authorization';
+import {Authorization} from 'modules/authorization';
+import {i18nInit} from 'locales/i18n';
+
+i18nInit();
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
