@@ -60,7 +60,7 @@ const styles = StyleSheet.create<Style>({
   },
   container: {
     flex: 1,
-    backgroundColor: COLORS.background,
+    backgroundColor: COLORS.BACKGROUND,
     justifyContent: 'center',
     paddingVertical: Platform.OS !== 'ios' ? height * 0.05 : 'auto',
   },

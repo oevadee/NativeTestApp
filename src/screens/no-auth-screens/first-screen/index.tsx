@@ -1,5 +1,5 @@
 import React, {ReactElement, useEffect} from 'react';
-import {ViewStyle, StyleSheet, View, Dimensions} from 'react-native';
+import {ViewStyle, StyleSheet, Dimensions} from 'react-native';
 import {StyledButton} from 'components/button';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/core';
@@ -56,6 +56,7 @@ export const FirstScreen = (): ReactElement => {
 };
 
 interface Style {
+  container: ViewStyle;
   button: ViewStyle;
   signInButton: ViewStyle;
   logoStyle: ViewStyle;
@@ -64,6 +65,9 @@ interface Style {
 const {height} = Dimensions.get('window');
 
 const styles = StyleSheet.create<Style>({
+  container: {
+    justifyContent: 'space-between',
+  },
   button: {
     height: 48,
     borderRadius: 24,

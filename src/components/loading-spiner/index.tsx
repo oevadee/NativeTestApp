@@ -77,6 +77,6 @@ const styles = StyleSheet.create<Style>({
     zIndex: 666,
   },
   loadingNoOpacity: {
-    backgroundColor: COLORS.background,
+    backgroundColor: COLORS.BACKGROUND,
   },
 });

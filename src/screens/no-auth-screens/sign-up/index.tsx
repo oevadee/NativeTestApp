@@ -17,10 +17,10 @@ import {Description} from 'components/description';
 import {LoadingSpinner} from 'components/loading-spiner';
 import {StyledText} from 'components/styled-text';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {NoAuthSafeArea} from 'containers/no-auth-safe-area';
 
 export const SignUp = (): ReactElement => {
-  const [isWaitingForResponse, setIsWaitingForResponse] =
-    useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isUserBack, setIsUserBack] = useState(false);
 
   const {t} = useTranslation();
@@ -29,8 +29,8 @@ export const SignUp = (): ReactElement => {
   const isWelcomeBack = isUserBack;
 
   return (
-    <>
-      <LoadingSpinner isLoading={isWaitingForResponse} />
+    <NoAuthSafeArea automaticallyAdjustContentInsets={false}>
+      <LoadingSpinner isLoading={isLoading} />
       <View style={styles.logoWrapper}>
         <Title style={styles.signIn}>{t('sign-in.sign-in-text')}</Title>
         <Description>
@@ -57,7 +57,7 @@ export const SignUp = (): ReactElement => {
           </StyledButton>
         </View>
       </View>
-    </>
+    </NoAuthSafeArea>
   );
 };
 
