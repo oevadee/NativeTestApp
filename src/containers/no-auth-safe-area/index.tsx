@@ -9,7 +9,8 @@ import {
   View,
   ImageStyle,
 } from 'react-native';
-// import { KeyboardAware } from 'modules/keyboard-aware';
+import {COLORS} from 'styles/colors';
+import {KeyboardAware} from 'modules/keyboard-aware';
 
 interface IProps {
   children: ReactNode;
@@ -27,14 +28,14 @@ export const NoAuthSafeArea = (props: IProps): ReactElement => {
   } = props;
   return (
     <SafeAreaView style={styles.container}>
-      {/* <KeyboardAware
-                contentContainerStyle={[styles.wrapper, containerStyle]}
-                automaticallyAdjustContentInsets={automaticallyAdjustContentInsets}> */}
-      <View style={[styles.logoWrapper, logoStyle]}>
-        <Image source={require('assets/icon.png')} style={styles.logo} />
-      </View>
-      {children}
-      {/* </KeyboardAware> */}
+      <KeyboardAware
+        contentContainerStyle={[styles.wrapper, containerStyle]}
+        automaticallyAdjustContentInsets={automaticallyAdjustContentInsets}>
+        <View style={[styles.logoWrapper, logoStyle]}>
+          <Image source={require('assets/icon.png')} style={styles.logo} />
+        </View>
+        {children}
+      </KeyboardAware>
     </SafeAreaView>
   );
 };
@@ -59,7 +60,7 @@ const styles = StyleSheet.create<Style>({
   },
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: COLORS.background,
     justifyContent: 'center',
     paddingVertical: Platform.OS !== 'ios' ? height * 0.05 : 'auto',
   },

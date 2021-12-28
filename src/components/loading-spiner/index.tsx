@@ -6,6 +6,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import {COLORS} from 'styles/colors';
 
 export enum ComponentType {
   View = 'View',
@@ -72,10 +73,10 @@ const styles = StyleSheet.create<Style>({
     bottom: 0,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#4a4a4a',
+    backgroundColor: COLORS.PRIMARY,
     zIndex: 666,
   },
   loadingNoOpacity: {
-    backgroundColor: '#000',
+    backgroundColor: COLORS.background,
   },
 });

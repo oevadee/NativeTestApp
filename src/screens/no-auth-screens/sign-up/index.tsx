@@ -17,10 +17,8 @@ import {Description} from 'components/description';
 import {LoadingSpinner} from 'components/loading-spiner';
 import {StyledText} from 'components/styled-text';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {COLORS} from 'styles/colors';
-import {NoAuthSafeArea} from 'containers/no-auth-safe-area';
 
-export const SignIn = (): ReactElement => {
+export const SignUp = (): ReactElement => {
   const [isWaitingForResponse, setIsWaitingForResponse] =
     useState<boolean>(false);
   const [isUserBack, setIsUserBack] = useState(false);
@@ -31,7 +29,7 @@ export const SignIn = (): ReactElement => {
   const isWelcomeBack = isUserBack;
 
   return (
-    <NoAuthSafeArea automaticallyAdjustContentInsets={false}>
+    <>
       <LoadingSpinner isLoading={isWaitingForResponse} />
       <View style={styles.logoWrapper}>
         <Title style={styles.signIn}>{t('sign-in.sign-in-text')}</Title>
@@ -45,12 +43,7 @@ export const SignIn = (): ReactElement => {
       <View style={styles.notMember}>
         <StyledText>{t('sign-in.not-member')}</StyledText>
         <TouchableOpacity
-          onPress={(): void =>
-            navigation.navigate({
-              name: NavigationRoutes.SIGN_UP,
-              key: NavigationRoutes.SIGN_UP,
-            })
-          }>
+          onPress={(): void => navigation.navigate(NavigationRoutes.SIGN_UP)}>
           <StyledText style={styles.text}>
             {' '}
             {t('sign-in.register-here')}
@@ -64,9 +57,20 @@ export const SignIn = (): ReactElement => {
           </StyledButton>
         </View>
       </View>
-    </NoAuthSafeArea>
+    </>
   );
 };
+
+interface Style {
+  logo: ImageStyle;
+  signIn: TextStyle;
+  signInBottom: ViewStyle;
+  textButton: TextStyle;
+  wrapper: ViewStyle;
+  logoWrapper: ViewStyle;
+  notMember: ViewStyle;
+  text: TextStyle;
+}
 
 const styles = StyleSheet.create<any>({
   logo: {
@@ -102,6 +106,6 @@ const styles = StyleSheet.create<any>({
     justifyContent: 'space-between',
   },
   text: {
-    color: COLORS.WHITE,
+    color: '#7a7a7a',
   },
 });

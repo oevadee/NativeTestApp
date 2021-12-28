@@ -1,5 +1,6 @@
 import React, {ReactElement, ReactNode} from 'react';
 import {StyleSheet, Text, TextProps, TextStyle} from 'react-native';
+import {COLORS} from 'styles/colors';
 
 interface IProps extends TextProps {
   children: ReactNode;
@@ -21,6 +22,6 @@ interface Style {
 const styles = StyleSheet.create<Style>({
   text: {
     fontSize: 14,
-    color: '#fff',
+    color: COLORS.WHITE,
   },
 });

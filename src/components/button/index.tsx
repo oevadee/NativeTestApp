@@ -12,6 +12,7 @@ import {
   ImageRequireSource,
   Dimensions,
 } from 'react-native';
+import {COLORS} from 'styles/colors';
 
 type IProps = {
   children?: ReactNode;
@@ -68,16 +69,17 @@ const {width} = Dimensions.get('window');
 const styles = StyleSheet.create<Style>({
   button: {
     borderRadius: 16,
-    backgroundColor: 'red',
+    backgroundColor: COLORS.PRIMARY,
     height: 36,
+    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    minWidth: width * 0.36,
+    minWidth: width * 0.33,
     paddingHorizontal: 15,
     flexDirection: 'row',
   },
   text: {
-    color: '#fff',
+    color: COLORS.WHITE,
   },
   icon: {
     width: 18,
@@ -85,6 +87,6 @@ const styles = StyleSheet.create<Style>({
     marginRight: 10,
   },
   buttonDisabled: {
-    backgroundColor: '#7a7a7a',
+    backgroundColor: '#gray',
   },
 });

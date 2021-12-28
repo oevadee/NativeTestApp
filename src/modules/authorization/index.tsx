@@ -35,6 +35,7 @@ export const Authorization = (): ReactElement => {
             component={NoAuthNavigation}
             options={{
               headerShown: false,
+              gestureEnabled: false,
             }}
           />
         )}

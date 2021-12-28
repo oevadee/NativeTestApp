@@ -14,6 +14,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {Authorization} from 'modules/authorization';
 import {i18nInit} from 'locales/i18n';
+import {COLORS} from 'styles/colors';
 
 i18nInit();
 
@@ -36,7 +37,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: COLORS.background,
   },
 });
 
