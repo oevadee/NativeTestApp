@@ -1,4 +1,4 @@
-import React, {ReactElement, useContext, useEffect, useState} from 'react';
+import React, {ReactElement, useState} from 'react';
 import {
   ImageStyle,
   StyleSheet,
@@ -63,16 +63,15 @@ export const SignUp = (): ReactElement => {
 
 interface Style {
   logo: ImageStyle;
-  signIn: TextStyle;
-  signInBottom: ViewStyle;
-  textButton: TextStyle;
-  wrapper: ViewStyle;
   logoWrapper: ViewStyle;
   notMember: ViewStyle;
+  signIn: TextStyle;
+  signInBottom: ViewStyle;
+  wrapper: ViewStyle;
   text: TextStyle;
 }
 
-const styles = StyleSheet.create<any>({
+const styles = StyleSheet.create<Style>({
   logo: {
     marginBottom: 45,
     justifyContent: 'flex-start',

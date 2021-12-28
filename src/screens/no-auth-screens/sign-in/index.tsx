@@ -1,12 +1,5 @@
-import React, {ReactElement, useContext, useEffect, useState} from 'react';
-import {
-  ImageStyle,
-  StyleSheet,
-  TextStyle,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from 'react-native';
+import React, {ReactElement, useState} from 'react';
+import {StyleSheet, TouchableOpacity, View, ViewStyle} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {NavigationRoutes} from 'navigation/routes';
 import {useNavigation} from '@react-navigation/native';
@@ -21,8 +14,7 @@ import {COLORS} from 'styles/colors';
 import {NoAuthSafeArea} from 'containers/no-auth-safe-area';
 
 export const SignIn = (): ReactElement => {
-  const [isWaitingForResponse, setIsWaitingForResponse] =
-    useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isUserBack, setIsUserBack] = useState(false);
 
   const {t} = useTranslation();
@@ -32,7 +24,7 @@ export const SignIn = (): ReactElement => {
 
   return (
     <NoAuthSafeArea automaticallyAdjustContentInsets={false}>
-      <LoadingSpinner isLoading={isWaitingForResponse} />
+      <LoadingSpinner isLoading={isLoading} />
       <View style={styles.logoWrapper}>
         <Title style={styles.signIn}>{t('sign-in.sign-in-text')}</Title>
         <Description>
@@ -68,7 +60,17 @@ export const SignIn = (): ReactElement => {
   );
 };
 
-const styles = StyleSheet.create<any>({
+interface Style {
+  logo: ViewStyle;
+  logoWrapper: ViewStyle;
+  notMember: ViewStyle;
+  signIn: ViewStyle;
+  signInBottom: ViewStyle;
+  wrapper: ViewStyle;
+  text: ViewStyle;
+}
+
+const styles = StyleSheet.create<Style>({
   logo: {
     marginBottom: 45,
     justifyContent: 'flex-start',
